@@ -1,4 +1,11 @@
+---
+title: maomaowm config readme
+author: DreamMaoMao
+co-author: Harsha Bhattacharyya
+---
+
 # Maomao-config
+
 My maomaowm configuration.
 
 ## Index
