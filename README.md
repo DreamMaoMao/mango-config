@@ -21,7 +21,7 @@ My maomaowm configuration.
 
 ## Dependencies
 
-- rofi-wayland
+- `rofi-wayland`
 - `foot`
 - `xdg-desktop-portal-wlr`
 - `swaybg`
