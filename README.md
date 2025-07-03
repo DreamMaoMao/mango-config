@@ -4,7 +4,7 @@
 [![Awesome](https://awesome.re/badge-flat.svg)](https://awesome.re)
 [![Arch Linux](https://img.shields.io/badge/Arch_Linux-1793D1?style=flat&logo=arch-linux&logoColor=white)](https://archlinux.org/)
 
-A special thanks to [Harsha Bhattacharyya](https://github.com/Harsha200105) for co-authoring this document.
+A special thanks to [Harsha Bhattacharyya](https://github.com/Harsha-Bhattacharyya) for co-authoring this document.
 
 ## Introduction
 
