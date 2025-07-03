@@ -5,7 +5,7 @@ co-author: Harsha Bhattacharyya
 ---
 
 # Maomao-config
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code-of-conduct.md)[![Built with love](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com/)[![Arch Linux](https://img.shields.io/badge/Arch_Linux-1793D1?style=flat&logo=arch-linux&logoColor=white)](https://archlinux.org/)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code-of-conduct.md)  [![Awesome](https://awesome.re/badge-flat.svg)](https://awesome.re)  [![Arch Linux](https://img.shields.io/badge/Arch_Linux-1793D1?style=flat&logo=arch-linux&logoColor=white)](https://archlinux.org/)
 
 ##Introduction
 
