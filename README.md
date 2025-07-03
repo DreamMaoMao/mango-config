@@ -5,11 +5,15 @@ co-author: Harsha Bhattacharyya
 ---
 
 # Maomao-config
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code-of-conduct.md)[![Built with love](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com/)[![Arch Linux](https://img.shields.io/badge/Arch_Linux-1793D1?style=flat&logo=arch-linux&logoColor=white)](https://archlinux.org/)
 
-My maomaowm configuration.
+##Introduction
+
+This repository contains the configuration files for my personalized `maomaowm` setup. It's tailored for a specific workflow and includes custom scripts and settings for a complete desktop environment.
 
 ## Index
 
+- [Introduction](#introduction)
 - [Screenshots](#screenshots)
 - [Dependencies](#dependencies)
 - [Installation](#installation)
@@ -71,7 +75,7 @@ And start the WM via DM or terminal.
 ### Keyboard
 
 | Keybinding | Action |
-|---|---|
+|---|
 | `Super + R` | Reload configuration |
 | `Alt + Return` | Open terminal |
 | `Alt + Space` | Show application launcher |
@@ -138,7 +142,7 @@ And start the WM via DM or terminal.
 ### Mouse
 
 | Button | Action |
-|---|---|
+|---|
 | `Super + Left Click` | Move window |
 | `Alt + Middle Click` | Set window proportion to 50% |
 | `Super + Right Click` | Resize window |
@@ -149,10 +153,10 @@ And start the WM via DM or terminal.
 | `Left Click (on empty space)` | Toggle overview |
 | `Right Click (on empty space)` | Close window |
 
-### Scroll Wheel
+[###](###) Scroll Wheel
 
 | Action | Command |
-|---|---|
+|---|
 | `Super + Scroll Up/Down` | View workspace to the left/right (if it has windows) |
 | `Alt + Scroll Up/Down` | Focus window on the left/right |
 | `Shift + Super + Scroll Up/Down` | Swap window with the one on the left/right |
@@ -161,7 +165,7 @@ And start the WM via DM or terminal.
 ### Touchpad Gestures
 
 | Gesture | Action |
-|---|---|
+|---|
 | 3-finger swipe Left/Right/Up/Down | Focus window in the specified direction |
 | 4-finger swipe Left/Right | View workspace to the left/right (if it has windows) |
 | 4-finger swipe Up/Down | Toggle overview |
