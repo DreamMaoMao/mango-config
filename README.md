@@ -1,11 +1,10 @@
----
-title: maomaowm config readme
-author: DreamMaoMao
-co-author: Harsha Bhattacharyya
----
+# Maomao-config README
 
-# Maomao-config
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code-of-conduct.md)      [![Awesome](https://awesome.re/badge-flat.svg)](https://awesome.re)      [![Arch Linux](https://img.shields.io/badge/Arch_Linux-1793D1?style=flat&logo=arch-linux&logoColor=white)](https://archlinux.org/)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code-of-conduct.md)
+[![Awesome](https://awesome.re/badge-flat.svg)](https://awesome.re)
+[![Arch Linux](https://img.shields.io/badge/Arch_Linux-1793D1?style=flat&logo=arch-linux&logoColor=white)](https://archlinux.org/)
+
+A special thanks to [Harsha Bhattacharyya](https://github.com/Harsha200105) for co-authoring this document.
 
 ## Introduction
 
@@ -18,7 +17,9 @@ This repository contains the configuration files for my personalized `maomaowm` 
 - [Dependencies](#dependencies)
 - [Installation](#installation)
 - [Keybindings](#keybindings)
-  - [Keyboard](#keyboard)
+  - [Window Management](#window-management)
+  - [Application Launchers](#application-launchers)
+  - [System Control](#system-control)
   - [Mouse](#mouse)
   - [Scroll Wheel](#scroll-wheel)
   - [Touchpad Gestures](#touchpad-gestures)
@@ -28,7 +29,6 @@ This repository contains the configuration files for my personalized `maomaowm` 
 ![image](https://github.com/user-attachments/assets/7b0f9d38-f919-43a5-ba1d-7bb21a07eea8)
 
 ![image](https://github.com/user-attachments/assets/39238f7f-9e0b-4c9e-981e-0eddd5cb0d0b)
-
 
 ## Dependencies
 
@@ -58,30 +58,32 @@ This repository contains the configuration files for my personalized `maomaowm` 
 - `swaylock-effects-git`
 - `wlogout`
 
-Quick install for Arch:
+**Quick install for Arch:**
+
 ```bash
 yay -S rofi-wayland foot xdg-desktop-portal-wlr swaybg waybar wl-clip-persist cliphist wl-clipboard wlsunset xfce-polkit swaync pamixer lavalauncher-mao-git wlr-dpms sway-audio-idle-inhibit-git swayidle dimland-git brightnessctl swayosd wlr-randr grim slurp satty swaylock-effects-git wlogout
 ```
 
+**Note for other distributions:** The package names may differ. Please use your distribution's package manager to find and install the equivalent packages.
+
 ## Installation
-Just run: 
-```bash
-git clone https://github.com/DreamMaoMao/maomao-config.git ~/.config/maomao
-```
-And start the WM via DM or terminal.
+
+1.  Clone the repository:
+
+    ```bash
+    git clone https://github.com/DreamMaoMao/maomao-config.git ~/.config/maomao
+    ```
+
+2.  Start the window manager from your display manager or terminal.
 
 ## Keybindings
 
-### Keyboard
+### Window Management
 
 | Keybinding | Action |
-|---|
+| --- | --- |
 | `Super + R` | Reload configuration |
-| `Alt + Return` | Open terminal |
-| `Alt + Space` | Show application launcher |
-| `Super + M` | Quit session |
 | `Alt + Q` | Close window |
-| `Super + Code:28` | Switch keyboard layout |
 | `Super + Tab` | Focus next window |
 | `Super + U` | Focus last active window |
 | `Alt + Left/Right/Up/Down` | Focus window in the specified direction |
@@ -118,31 +120,45 @@ And start the WM via DM or terminal.
 | `Super + Alt + Left/Right` | Move window to monitor on the left/right |
 | `Alt + Shift + X` / `Z` | Increase/Decrease gaps |
 | `Alt + Shift + R` | Toggle gaps |
+
+### Application Launchers
+
+| Keybinding | Action |
+| --- | --- |
+| `Alt + Return` | Open terminal |
+| `Alt + Space` | Show application launcher |
 | `Super + Return` | Open web browser |
 | `Ctrl + Return` | Start Clash VPN script |
 | `Ctrl + Super + Return` | Open file manager (yazi) |
 | `Ctrl + Shift + Return` | Open email client (aerc) |
-| `Ctrl + Alt + A` | Take screenshot |
-| `Super + H` | Toggle Waybar visibility |
-| `Super + L` | Lock screen |
-| `Ctrl + Alt + T` | Translate text on screen |
 | `Ctrl + Alt + Return` | Open terminal multiplexer |
 | `Ctrl + Space` | Search applications/files |
 | `Super + Space` | Show clipboard history |
+| `Super + Alt + Return` | Open video player (MPV) |
+
+### System Control
+
+| Keybinding | Action |
+| --- | --- |
+| `Super + M` | Quit session |
+| `Super + L` | Lock screen |
+| `Super + H` | Toggle Waybar visibility |
+| `Ctrl + Alt + A` | Take screenshot |
+| `Ctrl + Alt + T` | Translate text on screen |
 | `Ctrl + ,` / `.` | Decrease/Increase brightness |
 | `Alt + ,` / `.` | Decrease/Increase volume |
 | `Ctrl + Alt + \` | Toggle notification center |
 | `Ctrl + Alt + Backspace` | Clear all notifications |
 | `Super + Shift + P` | Turn on primary display |
 | `Super + P` | Run monitor setup script |
-| `Super + Shift + P` | Run virtual monitor script |
+| `Super + Shift + p` | Run virtual monitor script |
 | `Super + K` | Show key presses |
-| `Super + Alt + Return` | Open video player (MPV) |
+| `Super + Code:28` | Switch keyboard layout (`Code:28` is the keycode for the `grave` key) |
 
 ### Mouse
 
 | Button | Action |
-|---|
+| --- | --- |
 | `Super + Left Click` | Move window |
 | `Alt + Middle Click` | Set window proportion to 50% |
 | `Super + Right Click` | Resize window |
@@ -153,10 +169,10 @@ And start the WM via DM or terminal.
 | `Left Click (on empty space)` | Toggle overview |
 | `Right Click (on empty space)` | Close window |
 
-[###](###) Scroll Wheel
+### Scroll Wheel
 
 | Action | Command |
-|---|
+| --- | --- |
 | `Super + Scroll Up/Down` | View workspace to the left/right (if it has windows) |
 | `Alt + Scroll Up/Down` | Focus window on the left/right |
 | `Shift + Super + Scroll Up/Down` | Swap window with the one on the left/right |
@@ -165,8 +181,9 @@ And start the WM via DM or terminal.
 ### Touchpad Gestures
 
 | Gesture | Action |
-|---|
+| --- | --- |
 | 3-finger swipe Left/Right/Up/Down | Focus window in the specified direction |
 | 4-finger swipe Left/Right | View workspace to the left/right (if it has windows) |
 | 4-finger swipe Up/Down | Toggle overview |
+
 
