@@ -17,7 +17,7 @@ git clone -b dms https://github.com/Dreammango/mango-config.git ~/.config/mango
 ## Some Common Default Keybindings
 
 - alt+return: open foot terminal
-- alt+space: open rofi launcher
+- alt+space: open launcher
 - alt+q: kill client
 - alt+left/right/up/down: focus direction
 - super+m: quit mango
