@@ -12,7 +12,7 @@ yay -S foot xdg-desktop-portal-wlr swaybg wl-clip-persist cliphist wl-clipboard 
 
 # Usage
 ```bash
-git clone https://github.com/Dreammango/mango-config.git ~/.config/mango
+git clone -b dms https://github.com/Dreammango/mango-config.git ~/.config/mango
 ```
 ## Some Common Default Keybindings
 
