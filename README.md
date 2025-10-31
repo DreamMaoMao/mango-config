@@ -1,9 +1,8 @@
 # mango-config
-my mango config
 
-![image](https://github.com/user-attachments/assets/7b0f9d38-f919-43a5-ba1d-7bb21a07eea8)
 
-![image](https://github.com/user-attachments/assets/39238f7f-9e0b-4c9e-981e-0eddd5cb0d0b)
+https://github.com/user-attachments/assets/55ab064b-af4d-4e26-9275-a046ee0abaf7
+
 
 
 # dependence
