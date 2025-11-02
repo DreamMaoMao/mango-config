@@ -22,8 +22,5 @@ wl-clip-persist --clipboard regular --reconnect-tries 0 >/dev/null 2>&1 &
 # clipboard content manager
 wl-paste --type text --watch cliphist store >/dev/null 2>&1 &
 
-# Permission authentication
-/usr/lib/xfce-polkit/xfce-polkit >/dev/null 2>&1 &
-
 # inhibit by audio
 sway-audio-idle-inhibit >/dev/null 2>&1 &
