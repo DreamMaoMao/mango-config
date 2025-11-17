@@ -30,6 +30,26 @@
         "on-click":"bash ~/.config/mango/scripts/screenshot.sh",
         // "max-length": 50
     },
+    "ext/workspaces": {
+      "format": "{icon}",
+      "ignore-hidden": true,
+      // "active-only":true,
+      "on-click": "activate",
+      "on-click-right": "deactivate",
+      "on-scroll-up":"mmsg -d viewtoleft_have_client",
+      "on-scroll-down":"mmsg -d viewtoright_have_client",
+      "sort-by-id": true,
+      // "format-icons": {
+      //   "1": "",
+      //   "2": "",
+      //   "3": "",
+      //   "4": "",
+      //   "5": "",
+      //   "urgent": "",
+      //   "active": "",
+      //   "default": ""
+      // },
+    },
     "wlr/taskbar": {
       "format": "{icon}",
       "icon-size": 20,
