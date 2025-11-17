@@ -1,6 +1,6 @@
 // -*- mode: jsonc -*-
 {
-    // "layer": "top", // Waybar at top layer
+    "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 42, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
@@ -27,7 +27,8 @@
     ],
     "dwl/window": {
         "format": "[{layout}]{title}",
-        "on-click":"bash ~/.config/mango/scripts/screenshot.sh"
+        "on-click":"bash ~/.config/mango/scripts/screenshot.sh",
+        // "max-length": 50
     },
     "wlr/taskbar": {
       "format": "{icon}",
@@ -81,7 +82,7 @@
     "temperature": {
         // "thermal-zone": 2,
         // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-        "critical-threshold": 80,
+        "critical-threshold": 90,
         // "format-critical": "{temperatureF}°F {icon}",
         "format": "{temperatureC}°C {icon}",
         "tooltip": true,
@@ -128,18 +129,6 @@
             "car": "",
             "default": ["", "", ""]
         }
-    },
-    "custom/media": {
-        "format": "{icon} {}",
-        "return-type": "json",
-        "max-length": 40,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
-        },
-        "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
     "custom/power": {
         "format": "󰣇 ",

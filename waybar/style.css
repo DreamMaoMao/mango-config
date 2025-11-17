@@ -24,15 +24,15 @@
 @define-color color-widget-clock-fg                     #282828;
 @define-color color-widget-battery-bg                   #b8bb26;
 @define-color color-widget-battery-fg                   #282828;
-@define-color color-widget-battery-low-bg               #fb4934;
+@define-color color-widget-battery-low-bg               #df402f;
 @define-color color-widget-battery-low-fg               #282828;
-@define-color color-widget-battery-low-blink-bg         #fb4934;
+@define-color color-widget-battery-low-blink-bg         #df402f;
 @define-color color-widget-battery-low-blink-fg         #282828;
 @define-color color-widget-backlight-bg                 #d3869b;
 @define-color color-widget-backlight-fg                 #282828;
 @define-color color-widget-temperature-bg               #8ec07c;
 @define-color color-widget-temperature-fg               #282828;
-@define-color color-widget-temperature-critical-bg      #fb4934;
+@define-color color-widget-temperature-critical-bg      #df402f;
 @define-color color-widget-temperature-critical-fg      #282828;
 @define-color color-widget-memory-bg                    #83a598;
 @define-color color-widget-memory-fg                    #282828;
@@ -141,9 +141,9 @@ button:hover {
 }
 
 #taskbar {
-    padding: 0;
-    margin-left: 10;
-    margin-right: 10;
+    padding: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 #taskbar.empty {
