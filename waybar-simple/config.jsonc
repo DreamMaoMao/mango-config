@@ -1,0 +1,247 @@
+{
+    "layer": "top",
+    "position": "top",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "ipc": false,
+    "reload_style_on_change": true,
+    "height": 45,
+    "modules-left": [
+        "ext/workspaces",
+        // "dwl/tags",
+        "wlr/taskbar",
+        "dwl/window"
+    ],
+    "modules-right": [
+        "tray",
+        "network",
+        "pulseaudio",
+        "cpu",
+        "temperature",
+        "backlight",
+        "clock",
+        "custom/notification",
+        "custom/power"
+    ],
+    "ext/workspaces": {
+      "format": "{icon}",
+      "ignore-hidden": true,
+      // "active-only":true,
+      "on-click": "activate",
+      "on-click-right": "deactivate",
+      "on-scroll-up":"mmsg -d viewtoleft_have_client",
+      "on-scroll-down":"mmsg -d viewtoright_have_client",
+      "sort-by-id": true,
+      // "format-icons": {
+      //   "1": "",
+      //   "2": "",
+      //   "3": "",
+      //   "4": "",
+      //   "5": "",
+      //   "urgent": "",
+      //   "active": "",
+      //   "default": ""
+      // },
+    },
+    "dwl/tags": {
+      "num-tags": 9,
+      "hide-vacant": true,
+      // "tag-labels": ["一", "二", "三", "四", "五", "六", "七", "八", "九"]
+    },
+    "dwl/window": {
+        "format": "[{layout}]{title}",
+        "on-click":"bash ~/.config/mango/scripts/screenshot.sh"
+    },
+    "custom/notification": {
+      "tooltip": false,
+      "format": "{icon}",
+      "format-icons": {
+        "notification": "<span foreground='red'><sup></sup></span>",
+        "none": "  ",
+        "dnd-notification": "<span foreground='red'><sup></sup></span>",
+        "dnd-none": "",
+        "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+        "inhibited-none": "",
+        "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+        "dnd-inhibited-none": ""
+      },
+      "return-type": "json",
+      "exec-if": "which swaync-client",
+      "exec": "swaync-client -swb",
+      "on-click": "sleep 0.1s && swaync-client -t -sw",
+      "on-click-right": "swaync-client -d -sw",
+      "escape": true
+    },
+    "keyboard-state": {
+        "numlock": false,
+        "scrolllock": false,
+        "capslock": true,
+        "format": "{icon}",
+        "format-icons": {
+            "locked": "Capslock",
+            "unlocked": ""
+        }
+    },
+    "cpu": {
+      "interval": 2,
+      "format": " {load}%"
+    },
+    "temperature": {
+      "thermal-zone": 2,
+      "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
+      "critical-threshold": 10,
+      "format-critical": " {temperatureC}°C",
+      "format": ""
+    },
+    "wlr/taskbar": {
+      "format": "{icon}",
+      "icon-size": 22,
+      "all-outputs": false,
+      "tooltip-format": "{title}",
+      "markup": true,
+      "on-click": "activate",
+      "on-click-right": "close",
+      "ignore-list": ["Rofi", "wofi"]
+    },
+    "backlight": {
+      "interval": 2,
+      "device": "amdgpu_bl0",
+      "format": "{icon} {percent}%",
+      "format-icons": ["󰖔", "󰖨"],
+      "on-scroll-up": "brightnessctl set +1%",
+      "on-scroll-down": "brightnessctl set 1%-",
+      "smooth-scrolling-threshold": 1
+    },
+    "idle_inhibitor": {
+        "tooltip": false,
+        "format": "{icon}",
+        "start-activated": false,
+        "format-icons": {
+            "activated": " ",
+            "deactivated": " "
+        }
+    },
+    "tray": {
+      "interval": 1,
+      "icon-size": 21,
+      "spacing": 10
+    },
+    "network": {
+      "interval": 2,
+      "format-wifi": "{essid} ({signalStrength}%)\uf1eb",
+      "format-ethernet": "󰈀 {ifname}",
+      "format-linked": "\uf059 No IP ({ifname})",
+      "format-disconnected": "\uf071 Disconnected",
+      "tooltip-format": "{ifname} {ipaddr}/{cidr} via {gwaddr}",
+      "format-alt": "↓{bandwidthDownBytes} ↑{bandwidthUpBytes}"
+    },
+    "clock": {
+      "format": "{:%H:%M} ",
+      "format-alt": "{:%A, %b %d} ",
+      "tooltip-format": "{:%Y}",
+      "calendar": {
+        "mode": "year",
+        "mode-mon-col": 3,
+        "weeks-pos": "right",
+        "on-scroll": 1,
+        "format": {
+          "months": "<span color='#ffead3'><b>{}</b></span>",
+          "days": "<span color='#ecc6d9'><b>{}</b></span>",
+          "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+          "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+          "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+        }
+      }
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "tooltip": false,
+        "format-muted": " Muted",
+        "on-click": "pamixer -t",
+        "on-scroll-up": "pamixer -i 2",
+        "on-scroll-down": "pamixer -d 2",
+        "scroll-step": 5,
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        }
+    },
+    "custom/power": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "wlogout -C ~/.config/mango/wlogout/style.css -l  ~/.config/mango/wlogout/layout  -b 6 --protocol layer-shell",
+  		  "menu": "on-click-right",
+  		  "menu-file": "~/.config/mango/waybar/battery_menu.xml",
+		    "menu-actions": {
+			   "performance": "bash ~/.config/mango/scripts/power-profile  --performance",
+			   "schedutil": "bash ~/.config/mango/scripts/power-profile --schedutil"
+        }
+    },
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": " {volume}%",
+        "tooltip": false,
+        "format-source-muted": " Muted",
+        "on-click": "pamixer --default-source -t",
+        "on-scroll-up": "pamixer --default-source -i 2",
+        "on-scroll-down": "pamixer --default-source -d 2",
+        "scroll-step": 5
+    },
+    "custom/playerctl": {
+        "format": "{2} <span>{0}</span>",
+        "return-type": "json",
+        "exec": "playerctl -p spotify metadata -f '{\"text\": \"{{markup_escape(title)}} - {{markup_escape(artist)}}  {{ duration(position) }}/{{ duration(mpris:length) }}\", \"tooltip\": \"{{markup_escape(title)}} - {{markup_escape(artist)}}  {{ duration(position) }}/{{ duration(mpris:length) }}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+        "tooltip": false,
+        "on-click-middle": "playerctl -p spotify previous",
+        "on-click": "playerctl -p spotify play-pause",
+        "on-click-right": "playerctl -p spotify next",
+        "on-click-forward": "playerctl -p spotify position 10+",
+        "on-click-backward": "playerctl -p spotify position 10-",
+        "on-scroll-up": "playerctl -p spotify volume 0.02+",
+        "on-scroll-down": "playerctl -p spotify volume 0.02-",
+        "format-icons": {
+            "Paused": " ",
+            "Playing": " "
+        }
+    },
+    "cava": {
+        "framerate": 30,
+        "autosens": 0,
+        "sensitivity": 38,
+        "bars": 8,
+        "lower_cutoff_freq": 50,
+        "higher_cutoff_freq": 12000,
+        "method": "pulse",
+        "hide_on_silence": false,
+        "sleep_timer": 5,
+        "source": "auto",
+        "stereo": false,
+        "reverse": false,
+        "bar_delimiter": 0,
+        "monstercat": false,
+        "waves": false,
+        "noise_reduction": 0.77,
+        "input_delay": 0,
+        "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+        "actions": {
+                   "on-click-right": "mode"
+        }
+    },
+    "battery": {
+        "bat": "hidpp_battery_0",
+        "interval": 1800,
+        "states": {
+                   "warning": 20,
+                   "critical": 10
+        },
+        "format": "{icon}",
+        "format-icons": ["", "", "", "", ""],
+        "max-length": 25
+    }
+}
