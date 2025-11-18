@@ -1,51 +1,51 @@
-@define-color color-bg                                  #282828;
+@define-color color-bg                                  #1b1a1a;
 @define-color color-fg                                  #ebdbb2;
 @define-color color-button-bg                           #83a598;
-@define-color color-button-fg                           #282828;
+@define-color color-button-fg                           #1b1a1a;
 @define-color color-button-urgent-bg                    #fb4934;
-@define-color color-button-urgent-fg                    #282828;
+@define-color color-button-urgent-fg                    #1b1a1a;
 @define-color color-workspace-button-bg                 #504945;
 @define-color color-workspace-button-fg                 #ebdbb2;
 @define-color color-workspace-button-hover-bg           #665c54;
 @define-color color-workspace-button-hover-fg           #ebdbb2;
 @define-color color-workspace-button-focused-bg         #83a598;
-@define-color color-workspace-button-focused-fg         #282828;
+@define-color color-workspace-button-focused-fg         #1b1a1a;
 @define-color color-taskbar-button-minimized-bg         #bd788a;
-@define-color color-taskbar-button-minimized-fg         #282828;
+@define-color color-taskbar-button-minimized-fg         #1b1a1a;
 @define-color color-taskbar-button-active-bg            #BABD2C;
-@define-color color-taskbar-button-active-fg            #282828;
+@define-color color-taskbar-button-active-fg            #1b1a1a;
 @define-color color-widget-audio-bg                     #e3ac2b;
-@define-color color-widget-audio-fg                     #282828;
+@define-color color-widget-audio-fg                     #1b1a1a;
 @define-color color-widget-audio-hover-bg               #e3ac2b;
-@define-color color-widget-audio-hover-fg               #282828;
+@define-color color-widget-audio-hover-fg               #1b1a1a;
 @define-color color-widget-audio-muted-bg               #e3ac2b;
-@define-color color-widget-audio-muted-fg               #282828;
+@define-color color-widget-audio-muted-fg               #1b1a1a;
 @define-color color-widget-clock-bg                     #d5c4a1;
-@define-color color-widget-clock-fg                     #282828;
+@define-color color-widget-clock-fg                     #1b1a1a;
 @define-color color-widget-battery-bg                   #b8bb26;
-@define-color color-widget-battery-fg                   #282828;
+@define-color color-widget-battery-fg                   #1b1a1a;
 @define-color color-widget-battery-low-bg               #df402f;
-@define-color color-widget-battery-low-fg               #282828;
+@define-color color-widget-battery-low-fg               #1b1a1a;
 @define-color color-widget-battery-low-blink-bg         #df402f;
-@define-color color-widget-battery-low-blink-fg         #282828;
+@define-color color-widget-battery-low-blink-fg         #1b1a1a;
 @define-color color-widget-backlight-bg                 #d3869b;
-@define-color color-widget-backlight-fg                 #282828;
+@define-color color-widget-backlight-fg                 #1b1a1a;
 @define-color color-widget-temperature-bg               #8ec07c;
-@define-color color-widget-temperature-fg               #282828;
+@define-color color-widget-temperature-fg               #1b1a1a;
 @define-color color-widget-temperature-critical-bg      #df402f;
-@define-color color-widget-temperature-critical-fg      #282828;
+@define-color color-widget-temperature-critical-fg      #1b1a1a;
 @define-color color-widget-memory-bg                    #83a598;
-@define-color color-widget-memory-fg                    #282828;
+@define-color color-widget-memory-fg                    #1b1a1a;
 @define-color color-widget-cpu-bg                       #d5c4a1;
-@define-color color-widget-cpu-fg                       #282828;
+@define-color color-widget-cpu-fg                       #1b1a1a;
 @define-color color-widget-power-profile-balanced-bg    #d3869b;
-@define-color color-widget-power-profile-balanced-fg    #282828;
+@define-color color-widget-power-profile-balanced-fg    #1b1a1a;
 @define-color color-widget-power-profile-performance-bg #fe8019;
-@define-color color-widget-power-profile-performance-fg #282828;
+@define-color color-widget-power-profile-performance-fg #1b1a1a;
 @define-color color-widget-power-profile-saver-bg       #b8bb26;
-@define-color color-widget-power-profile-saver-fg       #282828;
+@define-color color-widget-power-profile-saver-fg       #1b1a1a;
 @define-color color-widget-network-bg                   #b8bb26;
-@define-color color-widget-network-fg                    #282828;
+@define-color color-widget-network-fg                    #1b1a1a;
 @define-color color-widget-tray-bg                      #504945;
 @define-color color-widget-tray-needs-attention         #fb4934;
 @define-color color-widget-custom-notification-bg        #504945;
@@ -53,22 +53,22 @@
 @define-color color-widget-scratchpad-bg                #ff0000;
 @define-color color-widget-scratchpad-fg                #ff0000;
 @define-color color-widget-power-bg                     #83a598;
-@define-color color-widget-power-fg                     #282828;
+@define-color color-widget-power-fg                     #1b1a1a;
 @define-color color-widget-window-bg                    #bd788a;
-@define-color color-widget-window-fg                    #282828;
+@define-color color-widget-window-fg                    #111111;
 @define-color color-widget-keyboard-state-bg            #fe8019;
-@define-color color-widget-keyboard-state-fg            #282828;
+@define-color color-widget-keyboard-state-fg            #1b1a1a;
 @define-color color-widget-language-bg                  #fe8019;
-@define-color color-widget-language-fg                  #282828;
-@define-color color-tooltip-bg                          #282828;
+@define-color color-widget-language-fg                  #1b1a1a;
+@define-color color-tooltip-bg                          #241F19;
 @define-color color-tooltip-fg                          #ebdbb2;
-@define-color color-menu-bg                             #282828;
-@define-color color-menuitem-bg                         @color-menu-bg;
+@define-color color-menu-bg                             #241F19;
+@define-color color-menuitem-bg                         #241F19;
 @define-color color-menuitem-fg                         #ebdbb2;
-@define-color color-menuitem-hover-bg                   mix(@color-menu-bg, #ebdbb2, 0.1);
-@define-color color-menuitem-hover-fg                   #83a598;
-@define-color color-menuitem-active-bg                  #83a598;
-@define-color color-menuitem-active-fg                  #282828;
+@define-color color-menuitem-hover-bg                   #b8bb26;
+@define-color color-menuitem-hover-fg                   #1b1a1a;
+@define-color color-menuitem-active-bg                  #ebdbb2;
+@define-color color-menuitem-active-fg                  #1b1a1a;
 @define-color color-gradient-fade                       #fbf1c7;
 
 * {
@@ -236,8 +236,9 @@ button:hover {
 #custom-power {
     background: linear-gradient(to top, @color-widget-power-bg, mix(@color-widget-power-bg, @color-gradient-fade, 0.25));
     color: @color-widget-power-fg;
+    font-family: "JetBrainsMono Nerd Font Propo", monospace;
     font-size: 20px;
-    margin-right: 4px;
+    font-weight: bold;
 }
 
 #window {
@@ -313,6 +314,7 @@ label:focus {
 }
 
 #cpu {
+    min-width: 60px;
     background: linear-gradient(to top, @color-widget-cpu-bg, mix(@color-widget-cpu-bg, @color-gradient-fade, 0.25));
     color: @color-widget-cpu-fg;
 }
@@ -426,6 +428,7 @@ label:focus {
 tooltip {
     background-color: @color-tooltip-bg;
     border: none;
+    border-radius: 20px;
 }
 
 tooltip decoration {
@@ -441,37 +444,22 @@ tooltip label {
     padding: 3px 7px;
 }
 
-menu {
-    background: @color-menu-bg;
-    border-radius: 20px;
-}
 
-menu label {
-    color: #ff0000;
+menu {
+  border-width: 2px;
+  border-style: solid;
+  border-color: @color-menu-fg;
+  background: @color-menu-bg;
+  border-radius: 10px;
 }
 
 menuitem {
-    background: @color-menuitem-bg;
+  border-radius: 10px;
 }
 
-menuitem label {
-    color: @color-menuitem-fg;
-}
-
-menuitem:focus,
 menuitem:hover {
-    background: @color-menuitem-hover-bg;
+  color:  @color-menuitem-hover-fg;
+  background: @color-menuitem-hover-bg;
 }
 
-menuitem:focus label,
-menuitem:hover label {
-    color: @color-menuitem-hover-fg;
-}
 
-menuitem:active {
-    background: @color-menuitem-active-bg;
-}
-
-menuitem:active label {
-    color: @color-menuitem-active-fg;
-}
