@@ -6,6 +6,9 @@ set +e
 # obs
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots >/dev/null 2>&1
 
+# some env can't auto run the portal, so need this
+/usr/lib/xdg-desktop-portal-wlr  >/dev/null 2>&1 &
+
 # xwayland dpi scale
 echo "Xft.dpi: 140" | xrdb -merge #dpi缩放
 # xrdb merge ~/.Xresources >/dev/null 2>&1
