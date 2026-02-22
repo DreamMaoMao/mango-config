@@ -10,8 +10,8 @@ dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 echo "Xft.dpi: 140" | xrdb -merge #dpi缩放
 # xrdb merge ~/.Xresources >/dev/null 2>&1
 
-# dms shell
-QT_WAYLAND_FORCE_DPI=96 dms run >/dev/null 2>&1 &
+# noctalia shell
+QT_WAYLAND_FORCE_DPI=96 qs -c noctalia-shell >/dev/null 2>&1 &
 
 # ime input
 fcitx5 --replace -d >/dev/null 2>&1 &
