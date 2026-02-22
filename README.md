@@ -1,7 +1,6 @@
 # mango-config
 
-
-https://github.com/user-attachments/assets/55ab064b-af4d-4e26-9275-a046ee0abaf7
+https://github.com/user-attachments/assets/bd779e12-fb39-4dd0-ac2b-70c39aab9bbb
 
 
 
