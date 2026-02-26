@@ -13,7 +13,7 @@ yay -S foot xdg-desktop-portal-wlr swaybg wl-clip-persist cliphist wl-clipboard 
 
 # Usage
 ```bash
-git clone -b noctalia https://github.com/Dreammango/mango-config.git ~/.config/mango
+git clone -b noctalia https://github.com/DreamMaoMao/mango-config.git ~/.config/mango
 cp ~/.config/mango/noctalia -r ~/.config/
 ```
 ## Some Common Default Keybindings
