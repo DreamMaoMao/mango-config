@@ -7,7 +7,7 @@
 
 {
     "label" : "logout",
-    "action" : "mmsg -q",
+    "action" : "mmsg dispatch quit",
     "text" : " Logout  ",
     "keybind" : "m"
 }
