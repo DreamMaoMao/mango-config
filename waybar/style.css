@@ -20,7 +20,7 @@
 @define-color color-widget-audio-hover-fg               #1b1a1a;
 @define-color color-widget-audio-muted-bg               #e3ac2b;
 @define-color color-widget-audio-muted-fg               #1b1a1a;
-@define-color color-widget-clock-bg                     #d5c4a1;
+@define-color color-widget-clock-bg                     #c4b595;
 @define-color color-widget-clock-fg                     #1b1a1a;
 @define-color color-widget-battery-bg                   #b8bb26;
 @define-color color-widget-battery-fg                   #1b1a1a;
@@ -36,7 +36,7 @@
 @define-color color-widget-temperature-critical-fg      #1b1a1a;
 @define-color color-widget-memory-bg                    #83a598;
 @define-color color-widget-memory-fg                    #1b1a1a;
-@define-color color-widget-cpu-bg                       #d5c4a1;
+@define-color color-widget-cpu-bg                       #c4b595;
 @define-color color-widget-cpu-fg                       #1b1a1a;
 @define-color color-widget-power-profile-balanced-bg    #d3869b;
 @define-color color-widget-power-profile-balanced-fg    #1b1a1a;
@@ -56,10 +56,14 @@
 @define-color color-widget-power-fg                     #1b1a1a;
 @define-color color-widget-window-bg                    #bd788a;
 @define-color color-widget-window-fg                    #111111;
+@define-color color-widget-layout-bg                    #bd788a;
+@define-color color-widget-layout-fg                    #111111;
 @define-color color-widget-keyboard-state-bg            #fe8019;
 @define-color color-widget-keyboard-state-fg            #1b1a1a;
-@define-color color-widget-language-bg                  #fe8019;
+@define-color color-widget-language-bg                  #bd788a;
 @define-color color-widget-language-fg                  #1b1a1a;
+@define-color color-widget-keymode-bg                   #83a598;
+@define-color color-widget-keymode-fg                   #1b1a1a;
 @define-color color-tooltip-bg                          #241F19;
 @define-color color-tooltip-fg                          #ebdbb2;
 @define-color color-menu-bg                             #241F19;
@@ -92,6 +96,16 @@ window#waybar > * {
 
 window#waybar.hidden {
     opacity: 0.2;
+}
+
+#layout {
+    transition: none;
+    padding: 0;
+    min-height: 0px;
+    min-width: 37px;
+    margin-left: 4px;
+    background: linear-gradient(to top, @color-widget-layout-bg, mix(@color-widget-layout-bg, @color-gradient-fade, 0.25));
+    color: @color-widget-layout-fg;
 }
 
 button {
@@ -131,6 +145,11 @@ button:hover {
 }
 
 #workspaces button.active {
+    background: linear-gradient(to top, @color-workspace-button-focused-bg, mix(@color-workspace-button-focused-bg, @color-gradient-fade, 0.25));
+    color: @color-workspace-button-focused-fg;
+}
+
+#workspaces button.overview {
     background: linear-gradient(to top, @color-workspace-button-focused-bg, mix(@color-workspace-button-focused-bg, @color-gradient-fade, 0.25));
     color: @color-workspace-button-focused-fg;
 }
@@ -205,6 +224,7 @@ button:hover {
 #custom-power,
 #keyboard-state,
 #language,
+#keymode,
 #window,
 #mpd {
     padding: 0px 12px;
@@ -367,6 +387,11 @@ label:focus {
 #language {
     background: linear-gradient(to top, @color-widget-language-bg, mix(@color-widget-language-bg, @color-gradient-fade, 0.25));
     color: @color-widget-language-fg;
+}
+
+#keymode {
+    background: linear-gradient(to top, @color-widget-keymode-bg, mix(@color-widget-keymode-bg, @color-gradient-fade, 0.25));
+    color: @color-widget-keymode-fg;
 }
 
 #wireplumber {

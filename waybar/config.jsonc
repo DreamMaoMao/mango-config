@@ -7,14 +7,17 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-        "ext/workspaces",
+        "mango/workspaces",
+        "mango/layout",
         "wlr/taskbar",
-        "dwl/window"
+        "mango/window",
     ],
     "modules-center": [
     ],
     "modules-right": [
         "tray",
+        "mango/language",
+        "mango/keymode",
         "network",
         "cpu",
         "memory",
@@ -25,9 +28,45 @@
         "clock",
         "custom/power"
     ],
+    "mango/workspaces": {
+        "format": "{icon}",
+        "hide-empty": true,
+        "on-click": "activate",
+        "on-click-right": "toggle",
+        "overview-label": "OVERVIEW"
+    },
+    "mango/keymode": {
+    	"format": "{}",
+    	// "format-default": " Default",
+        // "format-test": " Test",
+    },
+    "mango/window": {
+        "format": "{}",
+        "icon": true,
+        "on-click":"bash ~/.config/mango/scripts/screenshot.sh",
+        "on-click-right":"bash ~/tool/shotTranslate.sh shot",
+	    "icon": false,
+	    "icon-size": 20
+	    // "rewrite": {
+	    // 	"主目录": "🌎 $1",
+	    // 	"(.*) - zsh": "> [$1]"
+	    // },
+    },
+    "mango/layout": {
+        "format": "{}",
+        // "format-S": "Scroller",
+        // "format-T": "Tile",
+    },
+    "mango/language": {
+    "format": "{short}",
+    "format-en": "󰌌 US",
+    "format-ru": "󰌌 RU"
+    },
     "dwl/window": {
         "format": "[{layout}]{title}",
+        // "icon": true,
         "on-click":"bash ~/.config/mango/scripts/screenshot.sh",
+        "on-click-right":"bash ~/tool/shotTranslate.sh shot",
         // "max-length": 50
     },
     "ext/workspaces": {
@@ -57,16 +96,17 @@
       "tooltip-format": "{title}",
       "markup": true,
       "on-click": "activate",
+      "on-click-middle": "minimize",
       "on-click-right": "close",
       "ignore-list": ["Rofi", "wofi"]
     },
     "network": {
       "interval": 2,
-      "format-wifi": "{essid} ({signalStrength}%)\uf1eb",
+      "format-wifi": "\uf1eb {essid} ({signalStrength}%)",
       "format-ethernet": "󰈀 {ifname}",
       "format-linked": "\uf059 No IP ({ifname})",
       "format-disconnected": "\uf071 Disconnected",
-      "tooltip-format": "{ifname} {ipaddr}/{cidr} via {gwaddr}",
+      "tooltip-format": "{ipaddr}/{cidr} via {gwaddr}",
       "format-alt": "↓{bandwidthDownBytes} ↑{bandwidthUpBytes}"
     },
 
@@ -74,6 +114,18 @@
         "icon-size": 21,
         "spacing": 10
     },
+"keyboard-state": {
+    "numlock": true,
+    "capslock": true,
+    "format": {
+        "numlock": "N {icon}",
+        "capslock": "C {icon}"                                                                                                                                                       
+    },
+    "format-icons": {
+        "locked": "",
+        "unlocked": ""
+    }
+},
     "clock": {
       "format": " {:%H:%M}",
       "format-alt": " {:L%A, %b %d}",
@@ -100,6 +152,9 @@
         // "device": "acpi_video1",
         "format": "{icon} {percent}%",
         "format-icons": ["󰖔", "󰖨"],
+        "on-scroll-up": "bash ~/.config/mango/scripts/brightness.sh bup",
+        "on-scroll-down": "bash ~/.config/mango/scripts/brightness.sh bdown",
+        "on-click": "brightnessctl set 1%"
     },
     "battery": {
         "states": {
