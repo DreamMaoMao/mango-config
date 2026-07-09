@@ -1,0 +1,18 @@
+.widget-dnd {
+  label {
+    color: var(--text-color);
+    margin-right: $margin;
+    font-size: 1.1rem;
+  }
+
+  switch {
+    border-radius: var(--border-radius);
+    margin-left: $margin;
+
+    &:checked {}
+
+    slider {
+      border-radius: var(--border-radius);
+    }
+  }
+}

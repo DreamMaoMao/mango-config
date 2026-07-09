@@ -1,0 +1,408 @@
+:root {
+  --cc-bg: rgba(46, 46, 46, 0.7);
+
+  --noti-border-color: rgba(255, 255, 255, 0.15);
+  --noti-bg: 48, 48, 48;
+  --noti-bg-alpha: 0.8;
+  --noti-bg-darker: rgb(38, 38, 38);
+  --noti-bg-hover: rgb(56, 56, 56);
+  --noti-bg-focus: rgba(68, 68, 68, 0.6);
+  --noti-close-bg: rgb(78, 78, 78);
+  --noti-close-bg-hover: rgb(94, 94, 94);
+
+  --text-color: rgb(241, 220, 182);
+  --text-color-disabled: rgb(150, 150, 150);
+
+  --bg-selected: rgb(0, 128, 255);
+
+  --notification-icon-size: 64px;
+  --notification-app-icon-size: calc(var(--notification-icon-size) / 3);
+  --notification-group-icon-size: 32px;
+
+  --border: 3px solid var(--noti-border-color);
+  --border-radius: 12px;
+
+  --notification-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3),
+    0 1px 3px 1px rgba(0, 0, 0, 0.7), 0 2px 6px 2px rgba(0, 0, 0, 0.3);
+  --font-size-body: 15px;
+  --font-size-summary: 16px;
+
+  /* Deprecated variables (because of their typos). Keeeping them around for backwards compatibility. */
+  --hover-tranistion: background 0.15s ease-in-out;
+  --group-collapse-tranistion: opacity 400ms ease-in-out;
+
+  --hover-transition: var(--hover-tranistion);
+  --group-collapse-transition: var(--group-collapse-tranistion);
+}
+
+/* Fallback for older CSS themes */
+@import "pre-gtk4-variables";
+
+$margin: 8px;
+
+notificationwindow, blankwindow {
+  background: transparent;
+}
+
+* {
+    font-family: "HYLeMiaoTiJ";
+    font-weight: bolder;
+	  font-size: 20px;
+}
+
+.close-button {
+  /* The notification Close Button */
+  background: var(--noti-close-bg);
+  color: var(--text-color);
+  text-shadow: none;
+  padding: 0;
+  border-radius: 100%;
+  margin-top: $margin;
+  margin-right: $margin;
+  box-shadow: none;
+  border: none;
+  min-width: 24px;
+  min-height: 24px;
+
+  &:hover {
+    box-shadow: none;
+    background: var(--noti-close-bg-hover);
+    transition: var(--hover-tranistion);
+    border: none;
+  }
+}
+
+.notification-row {
+  background: none;
+  outline: none;
+
+  &:focus {
+    background: var(--noti-bg-focus);
+  }
+
+  .notification-background {
+    padding: 6px 12px;
+
+    .close-button {}
+
+    .notification {
+      /* The actual notification */
+      border-radius: var(--border-radius);
+      border: var(--border);
+      padding: 0;
+      transition: var(--hover-tranistion);
+      background: rgba(var(--noti-bg), var(--noti-bg-alpha));
+
+      &.low {
+        /* Low Priority Notification */
+      }
+
+      &.normal {
+        /* Normal Priority Notification */
+      }
+
+      &.critical {
+        /* Critical Priority Notification */
+      }
+
+      .notification-default-action {
+        /* The large action that also displays the notification summary and body */
+        padding: $margin / 2;
+        margin: 0;
+        box-shadow: none;
+        background: transparent;
+        border: none;
+        color: var(--text-color);
+        transition: var(--hover-tranistion);
+        border-radius: var(--border-radius);
+
+        &:hover {
+          -gtk-icon-filter: none;
+          background: var(--noti-bg-hover);
+        }
+
+        &:not(:only-child) {
+          /* When alternative actions are visible */
+          border-bottom-left-radius: 0px;
+          border-bottom-right-radius: 0px;
+        }
+
+        .notification-content {
+          background: transparent;
+          border-radius: var(--border-radius);
+          $margin: 4px;
+          padding: 0;
+
+          .image {
+            /* Notification Primary Image */
+            -gtk-icon-filter: none;
+            -gtk-icon-size: var(--notification-icon-size);
+            border-radius: 100px;
+            /* Size in px */
+            margin: $margin;
+          }
+
+          .app-icon {
+            /* Notification app icon (only visible when the primary image is set) */
+            -gtk-icon-filter: none;
+            -gtk-icon-size: var(--notification-app-icon-size);
+            -gtk-icon-shadow: 0 1px 4px black;
+            margin: 6px;
+          }
+
+          .text-box {
+            label {
+              /* Fixes base GTK 4 CSS setting a filter of opacity 50% for some odd reason */
+              filter: none;
+            }
+
+            .summary {
+              /* Notification summary/title */
+              font-size: var(--font-size-summary);
+              font-weight: bold;
+              background: transparent;
+              color: var(--text-color);
+              text-shadow: none;
+            }
+
+            .time {
+              /* Notification time-ago */
+              font-size: var(--font-size-summary);
+              font-weight: bold;
+              background: transparent;
+              color: var(--text-color);
+              text-shadow: none;
+              margin-right: 30px;
+            }
+
+            .body {
+              /* Notification body */
+              font-size: var(--font-size-body);
+              font-weight: normal;
+              background: transparent;
+              color: var(--text-color);
+              text-shadow: none;
+            }
+          }
+
+          progressbar {
+            /* The optional notification progress bar */
+            margin-top: $margin;
+          }
+
+          .body-image {
+            /* The "extra" optional bottom notification image */
+            margin-top: $margin;
+            background-color: white;
+            -gtk-icon-filter: none;
+          }
+
+          .inline-reply {
+            /* The inline reply section */
+            margin-top: $margin;
+
+            .inline-reply-entry {
+              background: var(--noti-bg-darker);
+              color: var(--text-color);
+              caret-color: var(--text-color);
+              border: var(--border);
+              border-radius: var(--border-radius);
+            }
+
+            .inline-reply-button {
+              margin-left: 4px;
+              background: rgba(var(--noti-bg), var(--noti-bg-alpha));
+              border: var(--border);
+              border-radius: var(--border-radius);
+              color: var(--text-color);
+
+              &:disabled {
+                background: initial;
+                color: var(--text-color-disabled);
+                border: var(--border);
+                border-color: transparent;
+              }
+
+              &:hover {
+                background: var(--noti-bg-hover);
+              }
+            }
+          }
+        }
+      }
+
+      .notification-alt-actions {
+        background: none;
+        border-bottom-left-radius: var(--border-radius);
+        border-bottom-right-radius: var(--border-radius);
+        padding: $margin / 2;
+      }
+
+      .notification-action {
+        /* The alternative actions below the default action */
+        margin: $margin / 2;
+        padding: 0;
+
+        &>button {
+          border-radius: var(--border-radius);
+          color: var(--text-color);
+        }
+      }
+    }
+  }
+}
+
+.notification-group {
+  /* Styling only for Grouped Notifications */
+  transition: opacity 200ms ease-in-out;
+
+  &:focus {
+    background: var(--noti-bg-focus);
+  }
+
+  &.low {
+    /* Low Priority Group */
+  }
+
+  &.normal {
+    /* Low Priority Group */
+  }
+
+  &.critical {
+    /* Low Priority Group */
+  }
+
+  /* The groups close button */
+  .notification-group-close-button .close-button {
+    margin: $margin * 1.5 $margin * 2.5;
+  }
+
+  %header {
+    margin: 0 $margin * 2;
+    color: var(--text-color);
+  }
+
+  .notification-group-headers {
+    /* Notification Group Headers */
+    @extend %header;
+
+    .notification-group-icon {
+      color: var(--text-color);
+      -gtk-icon-size: var(--notification-group-icon-size);
+    }
+
+    .notification-group-header {
+      color: var(--text-color);
+    }
+  }
+
+  .notification-group-buttons {
+    /* Notification Group Buttons */
+    @extend %header;
+  }
+
+  &.collapsed {
+
+    /* When another group is expanded, lower the opacity of the collapsed ones */
+    &.not-expanded {
+      opacity: 0.4;
+    }
+
+    .notification-row {
+      .notification {
+        background-color: rgba(var(--noti-bg), 1);
+      }
+
+      &:not(:last-child) {
+
+        /* Top notification in stack */
+        /* Set lower stacked notifications opacity to 0 */
+        .notification-action,
+        .notification-default-action {
+          opacity: 0;
+        }
+      }
+    }
+
+    &:hover {
+      .notification-row:not(:only-child) {
+        .notification {
+          background-color: var(--noti-bg-hover);
+        }
+      }
+    }
+  }
+}
+
+.control-center {
+  /* The Control Center which contains the old notifications + widgets */
+  background: var(--cc-bg);
+  color: var(--text-color);
+  border-radius: var(--border-radius);
+
+  .control-center-list-placeholder {
+    /* The placeholder when there are no notifications */
+    opacity: 0.5;
+  }
+
+  .control-center-list {
+    /* List of notifications */
+    background: transparent;
+
+    .notification {
+      box-shadow: var(--notification-shadow);
+
+      .notification-default-action,
+      .notification-action {
+        transition: var(--group-collapse-tranistion), var(--hover-tranistion);
+
+        &:hover {
+          background-color: var(--noti-bg-hover);
+        }
+      }
+    }
+  }
+}
+
+.blank-window {
+  /* Window behind control center and on all other monitors */
+  background: transparent;
+}
+
+.floating-notifications {
+  background: transparent;
+
+  .notification {
+    box-shadow: none;
+  }
+}
+
+/*** Widgets ***/
+.widget {
+  margin: $margin;
+  padding: $margin;
+  border-radius: var(--border-radius);
+}
+
+/* Title widget */
+@import "widgets/title";
+/* DND widget */
+@import "widgets/dnd";
+/* Label widget */
+@import "widgets/label";
+/* Mpris widget */
+@import "widgets/mpris";
+/* Buttons widget */
+@import "widgets/buttons";
+/* Menubar widget */
+@import "widgets/menubar";
+/* Volume widget */
+@import "widgets/volume";
+/* Slider widget */
+@import "widgets/slider";
+/* Backlight widget */
+@import "widgets/backlight";
+/* Inhibitors widget */
+@import "widgets/inhibitors";
+/* Calendar widget */
+@import "widgets/calendar";

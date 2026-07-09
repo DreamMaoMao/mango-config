@@ -82,7 +82,7 @@
     },
     "notification-inline-replies": {
       "type": "boolean",
-      "description": "If notifications should display a text field to reply if the sender requests it. NOTE: Replying in popup notifications is only available if the compositor supports GTK Layer-Shell ON_DEMAND keyboard interactivity.",
+      "description": "If notification should display a text field to reply if the sender requests it. NOTE: Replying in popup notification is only available if the compositor supports GTK Layer-Shell ON_DEMAND keyboard interactivity.",
       "default": false
     },
     "notification-icon-size": {
@@ -105,17 +105,17 @@
     },
     "timeout": {
       "type": "integer",
-      "description": "The notification timeout for notifications with normal priority",
+      "description": "The notification timeout for notification with normal priority",
       "default": 10
     },
     "timeout-low": {
       "type": "integer",
-      "description": "The notification timeout for notifications with low priority",
+      "description": "The notification timeout for notification with low priority",
       "default": 5
     },
     "timeout-critical": {
       "type": "integer",
-      "description": "The notification timeout for notifications with critical priority. 0 to disable",
+      "description": "The notification timeout for notification with critical priority. 0 to disable",
       "default": 0
     },
     "notification-window-width": {
@@ -281,8 +281,8 @@
     },
     "widgets": {
       "type": "array",
-      "description": "Which order and which widgets to display. If the \"notifications\" widget isn't specified, it will be placed at the bottom.",
-      "default": ["inhibitors", "title", "dnd", "notifications"],
+      "description": "Which order and which widgets to display. If the \"notification\" widget isn't specified, it will be placed at the bottom.",
+      "default": ["inhibitors", "title", "dnd", "notification"],
       "items": {
         "type": "string",
         // Sadly can't use regex and enums at the same time. Fix in the future?
@@ -337,7 +337,7 @@
         "text": {
           "type": "string",
           "description": "The title of the widget",
-          "default": "Notifications"
+          "default": "notification"
         },
         "clear-all-button": {
           "type": "boolean",

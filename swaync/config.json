@@ -31,7 +31,7 @@
 		},
 		"complete-sound": {
 			"exec": "~/.config/mango/swaync/sound/sound-complete.sh",
-			"app-name":"alixby3|com.xunlei.download|baidunetdisk"
+			"app-name":"alixby3|Motrix|com.xunlei.download|baidunetdisk"
 		},
 		"Low-sound": {
 			"exec": "~/.config/mango/swaync/sound/sound-normal.sh",
@@ -50,7 +50,7 @@
         "title",
         "dnd",
         "mpris",
-        "notifications"
+        "notification"
     ],
     "widget-config": {
         "title": {

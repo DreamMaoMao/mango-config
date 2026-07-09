@@ -1,0 +1,20 @@
+:root {
+  --widget-volume-row-icon-size: 24px;
+}
+
+.widget-volume {
+}
+
+.widget-volume>box>button {}
+
+/* Each row app icon */
+.widget-volume row image {
+  -gtk-icon-size: var(--widget-volume-row-icon-size);
+}
+
+.per-app-volume {
+  background-color: var(--noti-bg-alt);
+  margin: $margin;
+  margin-bottom: 0;
+  border-radius: var(--border-radius);
+}
