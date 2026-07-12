@@ -7,6 +7,7 @@ set +e
 # some env can't auto run the portal, so need this
 /usr/lib/xdg-desktop-portal-wlr  >/dev/null 2>&1 &
 
+# ensure xdg-desktop-portal running without last dirty state
 systemctl --user restart xdg-desktop-portal &
 
 # notify
