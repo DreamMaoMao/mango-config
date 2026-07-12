@@ -3,8 +3,11 @@
 
 set +e
 
+
 # some env can't auto run the portal, so need this
 /usr/lib/xdg-desktop-portal-wlr  >/dev/null 2>&1 &
+
+systemctl --user restart xdg-desktop-portal &
 
 # notify
 swaync -c ~/.config/mango/swaync/config.jsonc -s ~/.config/mango/swaync/style/style.scss >/dev/null 2>&1 &
