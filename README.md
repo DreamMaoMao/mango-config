@@ -8,7 +8,7 @@ my mango config
 
 # dependence
 ```bash
-yay -S rofi foot xdg-desktop-portal-wlr swaybg mangobar-git wl-clip-persist cliphist wl-clipboard wlsunset xfce-polkit swaync pamixer wlr-dpms sway-audio-idle-inhibit-git swayidle dimland-git brightnessctl swayosd wlr-randr grim slurp satty swaylock-effects-git wlogout sox
+yay -S rofi foot xdg-desktop-portal-wlr swaybg mangobar-git wl-clip-persist cliphist wl-clipboard wlsunset xfce-polkit swaync pamixer sway-audio-idle-inhibit-git swayidle dimland-git brightnessctl swayosd wlr-randr grim slurp satty swaylock-effects-git wlogout sox
 ```
 
 # Usage
