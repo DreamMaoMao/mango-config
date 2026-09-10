@@ -19,7 +19,7 @@ wlsunset -T 3501 -t 3500 >/dev/null 2>&1 &
 swaybg -i ~/.config/mango/wallpaper/wallpaper.png >/dev/null 2>&1 &
 
 # top bar
-mangobar -c ~/.config/mango/mangobar 2>&1 &
+mangobar -c ~/.config/mango/mangobar/config.jsonc -s ~/.config/mango/mangobar/style.css 2>&1 &
 
 # xwayland dpi scale
 echo "Xft.dpi: 140" | xrdb -merge #dpi缩放

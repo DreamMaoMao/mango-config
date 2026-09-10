@@ -4,29 +4,37 @@
 # You can call this script like this:
 # brightness.sh [up|down]
 
-function get_brightness {
-	var=$(brightnessctl get)
-	echo "${var##* }" | sed 's/[^0-9][^.]*//g'
-}
-
-function send_notification {
-	DIR=$(dirname "$0")
-	brightness=$(get_brightness)
-	icon_name="${HOME}/.config/rice_assets/Icons/b.png"
-
-	# Send the notification
-	dunstify "Brightness: $brightness%" -h int:value:$brightness -i /usr/share/icons/Adwaita/96x96/status/display-brightness-symbolic.symbolic.png -t 1000 --replace=555 -u low
-}
 
 case $1 in
 up)
-	swayosd-client --brightness +2
-	# brightnessctl set +1%
-	# send_notification
-	;;
+    swayosd-client --brightness +2
+    ;;
 down)
-	swayosd-client --brightness -2
-	# brightnessctl set 1%-
-	# send_notification
-	;;
+    current_brightness=$(brightnessctl -m | cut -d, -f4 | tr -d '%')
+	target_brightness=$((current_brightness - 1))
+
+	if [ "$target_brightness" -lt 1 ]; then
+		swayosd-client --brightness 1
+        exit 0
+	fi
+    
+    swayosd-client --brightness -2
+    # brightnessctl set 1%-
+    ;;
+bup)
+    brightnessctl set 1%+
+    ;;
+bdown)
+
+    current_brightness=$(brightnessctl -m | cut -d, -f4 | tr -d '%')
+	target_brightness=$((current_brightness - 1))
+
+
+	if [ "$target_brightness" -lt 1 ]; then
+		brightnessctl set 1%
+        exit 0
+	fi
+    
+    brightnessctl set 1%-
+    ;;
 esac
