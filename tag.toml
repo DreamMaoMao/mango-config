@@ -1,4 +1,4 @@
 # tags rule
-[[rule.tagrule]]
+[[rule.tag_rule]]
 id = "*"
 layout_name = "tile"
