@@ -148,7 +148,7 @@
 [bind.default.conflict]
 "SUPER+r" = [
   # reload config
-  "spawn_shell,bash ~/.config/mango/scripts/config_check.sh",
+  "spawn_shell,notify-send 'config reload'",
   "reload_config",
 ]
 

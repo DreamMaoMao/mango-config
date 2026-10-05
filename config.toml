@@ -139,7 +139,15 @@ global_color = 0x8d64cfff
 overlay_color = 0x95C381ff
 
 # sub config load
-source = ["./var.toml", "./env.toml", "./bind.toml", "./rule.toml", "./monitor.toml", "./device.toml", "./tag.toml"]
+source = [
+    "./var.toml",
+    "./env.toml",
+    "./bind.toml",
+    "./rule.toml",
+    "./monitor.toml",
+    "./device.toml",
+    "./tag.toml",
+]
 
 # run autostart
 exec_once = ["~/.config/mango/autostart.sh"]
