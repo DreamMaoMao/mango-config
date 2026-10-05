@@ -1,0 +1,13 @@
+# [[rule.devicerule]]
+# name = "AT Translated Set 2 keyboard"
+# kb_layout = "us"
+#
+# [[rule.devicerule]]
+# name = "A4Tech USB Mouse"
+# accel_speed = 0
+# natural_scrolling = 0
+#
+# [[rule.devicerule]]
+# type = "trackpad"
+# tap_to_click = 1
+# natural_scrolling = 0

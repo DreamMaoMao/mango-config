@@ -1,0 +1,4 @@
+# tags rule
+[[rule.tagrule]]
+id = "*"
+layout_name = "tile"

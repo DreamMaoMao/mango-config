@@ -1,0 +1,205 @@
+# Window Rules
+
+[[rule.windowrule]]
+isfloating = 1
+appid = "xdg-desktop-portal-gtk"
+title = "打开本地仓库"
+
+[[rule.windowrule]]
+isfloating = 1
+appid = "xdg-desktop-portal-gtk"
+title = "打开文件"
+
+[[rule.windowrule]]
+globalkeybinding = "ctrl+alt-o"
+appid = "com.obsproject.Studio"
+
+[[rule.windowrule]]
+globalkeybinding = "ctrl+alt-n"
+appid = "com.obsproject.Studio"
+
+[[rule.windowrule]]
+noswallow = 1
+appid = "flameshot"
+
+[[rule.windowrule]]
+isfullscreen = 1
+appid = "flameshot"
+
+[[rule.windowrule]]
+animation_type_open = "none"
+appid = "flameshot"
+
+[[rule.windowrule]]
+animation_type_close = "none"
+appid = "flameshot"
+
+# windowrule=animation_type_close:none,appid:Sxiv
+
+[[rule.windowrule]]
+noswallow = 1
+title = "Event Tester"
+
+[[rule.windowrule]]
+isfloating = 1
+appid = "Rofi"
+
+[[rule.windowrule]]
+isnoborder = 1
+appid = "Rofi"
+
+[[rule.windowrule]]
+animation_type_open = "slide"
+appid = "Rofi"
+
+[[rule.windowrule]]
+animation_type_close = "zoom"
+appid = "Rofi"
+
+[[rule.windowrule]]
+animation_type_close = "zoom"
+appid = "^com.gabm.satty$"
+
+[[rule.windowrule]]
+force_fakemaximize = 1
+appid = "firefox"
+
+[[rule.windowrule]]
+force_fakemaximize = 1
+appid = "org.telegram.desktop"
+
+[[rule.windowrule]]
+istagsilent = 1
+appid = "org.telegram.desktop"
+
+[[rule.windowrule]]
+tags = 4
+appid = "Google-chrome"
+
+[[rule.windowrule]]
+tags = 3
+appid = "QQ"
+
+[[rule.windowrule]]
+tags = 2
+appid = "mpv"
+
+[[rule.windowrule]]
+tags = 6
+appid = "obs"
+
+[[rule.windowrule]]
+tags = 5
+appid = "org.telegram.desktop"
+
+[[rule.windowrule]]
+isoverlay = 1
+appid = "^com.gabm.satty$"
+
+[[rule.windowrule]]
+unfocused_opacity = 1.0
+focused_opacity = 1.0
+appid = "^mpv$"
+
+[[rule.windowrule]]
+unfocused_opacity = 1.0
+focused_opacity = 1.0
+appid = "^St$"
+
+[[rule.windowrule]]
+unfocused_opacity = 1.0
+focused_opacity = 1.0
+appid = "^$term$"
+
+[[rule.windowrule]]
+unfocused_opacity = 1.0
+focused_opacity = 1.0
+appid = "^obsidian$"
+
+[[rule.windowrule]]
+unfocused_opacity = 1.0
+focused_opacity = 1.0
+appid = "^Google-chrome$"
+
+[[rule.windowrule]]
+unfocused_opacity = 1.0
+focused_opacity = 1.0
+appid = "^QQ$"
+
+# layer rule
+[[rule.layerrule]]
+noblur = 1
+noanim = 1
+layer_name = "selection"
+
+[[rule.layerrule]]
+noshadow = 1
+layer_name = "swaync-control-center"
+
+[[rule.layerrule]]
+noshadow = 1
+layer_name = "swaync-notification-window"
+
+[[rule.layerrule]]
+noblur = 1
+noanim = 1
+layer_name = "dimland_layer"
+
+[[rule.layerrule]]
+animation_type_open = "zoom"
+layer_name = "launcher"
+
+[[rule.layerrule]]
+animation_type_close = "zoom"
+layer_name = "launcher"
+
+[[rule.layerrule]]
+animation_type_open = "zoom"
+layer_name = "rofi"
+
+[[rule.layerrule]]
+animation_type_close = "zoom"
+layer_name = "rofi"
+
+[[rule.layerrule]]
+noanim = 1
+noblur = 1
+noshadow = 1
+layer_name = "hyprpicker"
+
+[[rule.layerrule]]
+noanim = 1
+layer_name = "showkeys"
+
+[[rule.layerrule]]
+noanim = 1
+layer_name = "wofi"
+
+[[rule.layerrule]]
+noshadow = 1
+layer_name = "mangobar"
+
+[[rule.layerrule]]
+noshadow = 1
+layer_name = "mangobar-menu"
+
+[[rule.layerrule]]
+animation_type_open = "fade"
+layer_name = "swaync-control-center"
+
+[[rule.layerrule]]
+animation_type_close = "fade"
+layer_name = "swaync-control-center"
+
+[[rule.layerrule]]
+animation_type_open = "fade"
+layer_name = "swayosd"
+
+[[rule.layerrule]]
+animation_type_close = "fade"
+layer_name = "swayosd"
+
+[[rule.layerrule]]
+noblur = 1
+noanim = 1
+layer_name = "mangobar-menu"

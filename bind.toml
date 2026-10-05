@@ -1,0 +1,186 @@
+[bind.default]
+
+# menu and terminal
+"Alt+Return" = "spawn,$term"
+"Alt+space" = "spawn,rofi -config ~/.config/mango/rofi/config.rasi -show drun"
+
+# kill or exit
+"SUPER+m" = "quit"
+"ALT+q" = "killclient,"
+
+# switch window focus
+"SUPER+Tab" = "overcircle,next"
+"ALT+Tab" = "togglejump"
+"SUPER+shift+n" = "focusstack,next"
+"SUPER+u" = "focuslast"
+"ALT+Left" = "focusdir,left"
+"ALT+Right" = "focusdir,right"
+"ALT+Up" = "focusdir,up"
+"ALT+Down" = "focusdir,down"
+
+# swap window
+"SUPER+SHIFT+Up" = "exchange_client,up"
+"SUPER+SHIFT+Down" = "exchange_client,down"
+"SUPER+SHIFT+Left" = "exchange_client,left"
+"SUPER+SHIFT+Right" = "exchange_client,right"
+
+# movewin
+"CTRL+SHIFT+Up" = "movewin,+0,-50"
+"CTRL+SHIFT+Down" = "movewin,+0,+50"
+"CTRL+SHIFT+Left" = "movewin,-50,+0"
+"CTRL+SHIFT+Right" = "movewin,+50,+0"
+
+# resizewin
+"CTRL+ALT+Up" = "resizewin,+0,-50"
+"CTRL+ALT+Down" = "resizewin,+0,+50"
+"CTRL+ALT+Left" = "resizewin,-50,+0"
+"CTRL+ALT+Right" = "resizewin,+50,+0"
+
+# switch window status
+"SUPER+g" = "toggleglobal,"
+"ALT+backslash" = "togglefloating,"
+"ALT+a" = "togglemaximizescreen,"
+"ALT+f" = "togglefullscreen,"
+"ALT+SHIFT+f" = "togglefakefullscreen,"
+"SUPER+i" = "minimized,"
+"SUPER+o" = "toggleoverlay,"
+"SUPER+SHIFT+I" = "restore_minimized"
+"ALT+z" = "toggle_scratchpad"
+
+# scroller layout
+"ALT+e" = "set_proportion,1.0"
+"ALT+x" = "switch_proportion_preset,"
+"alt+super+ctrl+Left" = "scroller_stack,left"
+"alt+super+ctrl+Right" = "scroller_stack,right"
+"alt+super+ctrl+Up" = "scroller_stack,up"
+"alt+super+ctrl+Down" = "scroller_stack,down"
+
+#dwindle layout
+"alt+shift+Return" = "dwindle_toggle_split_direction"
+
+# tile layout
+"SUPER+e" = "incnmaster,1"
+"SUPER+t" = "incnmaster,-1"
+"ALT+s" = "zoom,"
+
+# switch layout
+"CTRL+SUPER+i" = "setlayout,tile"
+"CTRL+SUPER+l" = "setlayout,scroller"
+"SUPER+n" = "switch_layout"
+
+# tag switch
+"SUPER+Left" = "viewtoleft,0"
+"CTRL+Left" = "viewtoleft_have_client,0"
+"SUPER+Right" = "viewtoright,0"
+"CTRL+Right" = "viewtoright_have_client,0"
+"CTRL+SUPER+Left" = "tagtoleft,0"
+"CTRL+SUPER+Right" = "tagtoright,0"
+"Ctrl+1" = "view,1,0"
+"Ctrl+2" = "view,2,0"
+"Ctrl+3" = "view,3,0"
+"Ctrl+4" = "view,4,0"
+"Ctrl+5" = "view,5,0"
+"Ctrl+6" = "view,6,0"
+"Ctrl+7" = "view,7,0"
+"Ctrl+8" = "view,8,0"
+"Ctrl+9" = "view,9,0"
+"Alt+1" = "tag,1,0"
+"Alt+2" = "tag,2,0"
+"Alt+3" = "tag,3,0"
+"Alt+4" = "tag,4,0"
+"Alt+5" = "tag,5,0"
+"Alt+6" = "tag,6,0"
+"Alt+7" = "tag,7,0"
+"Alt+8" = "tag,8,0"
+"Alt+9" = "tag,9,0"
+"ctrl+Super+1" = "toggletag,1"
+"ctrl+Super+2" = "toggletag,2"
+"ctrl+Super+3" = "toggletag,3"
+"ctrl+Super+4" = "toggletag,4"
+"ctrl+Super+5" = "toggletag,5"
+"ctrl+Super+6" = "toggletag,6"
+"ctrl+Super+7" = "toggletag,7"
+"ctrl+Super+8" = "toggletag,8"
+"ctrl+Super+9" = "toggletag,9"
+"Super+1" = "toggleview,1"
+"Super+2" = "toggleview,2"
+"Super+3" = "toggleview,3"
+"Super+4" = "toggleview,4"
+"Super+5" = "toggleview,5"
+"Super+6" = "toggleview,6"
+"Super+7" = "toggleview,7"
+"Super+8" = "toggleview,8"
+"Super+9" = "toggleview,9"
+
+# monitor switch
+"alt+shift+Left" = "focusmon,left"
+"alt+shift+Right" = "focusmon,right"
+"alt+shift+Up" = "focusmon,up"
+"alt+shift+Down" = "focusmon,down"
+"SUPER+Alt+Left" = "tagmon,left"
+"SUPER+Alt+Right" = "tagmon,right"
+"SUPER+Alt+Up" = "tagmon,up"
+"SUPER+Alt+Down" = "tagmon,down"
+
+# gaps
+"ALT+SHIFT+X" = "incgaps,1"
+"ALT+SHIFT+Z" = "incgaps,-1"
+"ALT+SHIFT+R" = "togglegaps"
+
+# brightness and volume
+"XF86AudioRaiseVolume" = "spawn,~/.config/mango/scripts/volume.sh up"
+"XF86AudioLowerVolume" = "spawn,~/.config/mango/scripts/volume.sh down"
+"XF86AudioMute" = "spawn,~/.config/mango/scripts/volume.sh mute"
+"XF86MonBrightnessUp" = "spawn,~/.config/mango/scripts/brightness.sh up"
+"XF86MonBrightnessDown" = "spawn,~/.config/mango/scripts/brightness.sh down"
+
+#custom app bind
+"SUPER+Return" = "spawn,google-chrome"
+"CTRL+SUPER+Return" = "spawn,$term -e yazi"
+"CTRL+ALT+a" = "spawn_shell,grim -g \"$(slurp -b '#2E2A1E55' -c '#fb751bff')\" -t ppm - | satty -f -"
+"SUPER+h" = "spawn,bash ~/.config/mango/scripts/hide_mangobar.sh"
+"SUPER+l" = "spawn,swaylock -f -c 000000"
+"CTRL+ALT+backslash" = "spawn,swaync-client -t"
+"CTRL+ALT+BackSpace" = "spawn,swaync-client -C"
+"SUPER+p" = "spawn,bash ~/.config/mango/scripts/monitor.sh"
+"SUPER+SHIFT+p" = "spawn,bash ~/.config/mango/scripts/virmon.sh"
+
+[bind.default.conflict]
+"SUPER+r" = [
+  # reload config
+  "spawn_shell,bash ~/.config/mango/scripts/config_check.sh",
+  "reload_config",
+]
+
+[mousebind.default]
+
+# Mouse Button Bindings
+"SUPER+btn_left" = "moveresize,curmove"
+"alt+btn_middle" = "set_proportion,0.5"
+"SUPER+btn_right" = "moveresize,curresize"
+"SUPER+CTRL+btn_left" = "minimized"
+"SUPER+CTRL+btn_right" = "killclient"
+"SUPER+CTRL+btn_middle" = "togglefullscreen"
+"btn_middle" = "togglemaximizescreen,0"
+
+[axisbind.default]
+
+# Axis Bindings
+"SUPER+UP" = "viewtoleft_have_client"
+"SUPER+DOWN" = "viewtoright_have_client"
+"alt+UP" = "focusdir,left"
+"alt+DOWN" = "focusdir,right"
+"shift+super+UP" = "exchange_client,left"
+"shift+super+DOWN" = "exchange_client,right"
+
+[gesturebind.default]
+
+# Gesturebind
+"none+left+3" = "focusdir,left"
+"none+right+3" = "focusdir,right"
+"none+up+3" = "focusdir,up"
+"none+down+3" = "focusdir,down"
+"none+right+4" = "viewprev_have_client"
+"none+left+4" = "viewnext_have_client"
+"none+up+4" = "enteroverview"
+"none+down+4" = "leaveoverview"
