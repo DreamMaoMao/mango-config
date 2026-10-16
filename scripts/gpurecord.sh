@@ -16,17 +16,17 @@ default_args=(-w screen -f 60 -a default_output)
 
 usage() {
     cat <<'EOF'
-用法:
-  gpurecord.sh              不带参数 = toggle, 没录就开录, 在录就停
-  gpurecord.sh start [gpu-screen-recorder 的额外参数...]
+Usage:
+  gpurecord.sh              no args = toggle: start if not recording, stop if recording
+  gpurecord.sh start [extra gpu-screen-recorder args...]
   gpurecord.sh stop
   gpurecord.sh toggle
   gpurecord.sh status
 
-环境变量:
-  GPURECORD_DIR        输出目录, 默认 ~/video
-  GPURECORD_SIGNAL     触发 mangobar 的 SIGRTMIN+N, 默认 8
-  GPURECORD_STATE_DIR  状态目录, 默认 $XDG_RUNTIME_DIR/gpurecord-$UID
+Environment variables:
+  GPURECORD_DIR        Output directory, default ~/video
+  GPURECORD_SIGNAL     SIGRTMIN+N to poke mangobar, default 8
+  GPURECORD_STATE_DIR  State directory, default $XDG_RUNTIME_DIR/gpurecord-$UID
 EOF
 }
 
@@ -59,9 +59,15 @@ poke_bar() {
 }
 
 notify() {
+    local title=$1 body=${2:-} urgency=${3:-low}
     command -v notify-send >/dev/null 2>&1 || return 0
-    notify-send -a gpurecord -u low -i gpu-screen-recorder \
-        -h string:x-canonical-private-synchronous:gpurecord "$1" "$2" || true
+    if [[ -n $body ]]; then
+        notify-send -a gpurecord -u "$urgency" -i gpu-screen-recorder \
+            -h string:x-canonical-private-synchronous:gpurecord "$title" "$body" || true
+    else
+        notify-send -a gpurecord -u "$urgency" -i gpu-screen-recorder \
+            -h string:x-canonical-private-synchronous:gpurecord "$title" || true
+    fi
 }
 
 wait_gone() {
@@ -75,7 +81,7 @@ wait_gone() {
 
 cmd_status() {
     is_recording || return 0
-    printf '%s 录制 %s\n' "$icon""$(elapsed_text)"
+    printf '%s recording %s\n' "$icon" "$(elapsed_text)"
 }
 
 cmd_start() {
@@ -111,7 +117,7 @@ cmd_start() {
         sed -e 's/  */ /g' -e 's/^ //' -e 's/ $//')
     [[ -n $reason ]] || reason="gpu-screen-recorder failed to start"
     printf 'gpurecord: %s\n' "$reason" >&2
-    notify "$icon 录制启动失败" "$reason"
+    notify "$icon Recording failed to start" "$reason"
     return 1
 }
 
@@ -137,6 +143,9 @@ cmd_stop() {
 
 cmd_supervise() {
     local out rec rc i stopping=0 secs reason body start_secs
+
+    # Ensure out_dir is an absolute path
+    out_dir=$(readlink -f -- "$out_dir")
     out="$out_dir/$(date +%Y-%m-%d_%H-%M-%S).mp4"
 
     gpu-screen-recorder "${default_args[@]}" "$@" -o "$out" >>"$log_file" 2>&1 &
@@ -147,8 +156,7 @@ cmd_supervise() {
     printf '%s\n' "$start_secs" > "$start_file"
 
     poke_bar
-    notify "$icon 开始录制" "输出: $(basename "$out")
-点击状态栏的 $icon 录制 模块可停止"
+    notify "$icon Recording started" "" low
 
     for ((i = 0; i < 10; i++)); do
         kill -0 "$rec" 2>/dev/null || break
@@ -162,7 +170,7 @@ cmd_supervise() {
         reason=$(tail -n 4 "$log_file" 2>/dev/null | tr '\n' ' ' |
             sed -e 's/  */ /g' -e 's/^ //' -e 's/ $//')
         [[ -n $reason ]] || reason="gpu-screen-recorder exited (rc=$rc)"
-        notify "$icon 录制启动失败" "$reason"
+        notify "$icon Recording failed to start" "$reason" low
         return 1
     fi
 
@@ -179,12 +187,11 @@ cmd_supervise() {
     rm -f "$pid_file" "$start_file" "$out_file"
     poke_bar
 
-    body="$(basename "$out")
-时长 $(printf '%02d:%02d:%02d' $((secs / 3600)) $((secs % 3600 / 60)) $((secs % 60)))"
+    body="record save in:$out"
     if ((rc != 0 && rc != 130 && !stopping)); then
-        body="$body（异常退出 rc=$rc）"
+        body="$body (abnormal exit rc=$rc)"
     fi
-    notify "$icon 录制结束" "$body"
+    notify "$icon Recording stopped" "$body" normal
 }
 
 case ${1:-toggle} in
