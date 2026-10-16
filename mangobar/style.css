@@ -1,53 +1,4 @@
-/* =========================================================
- * mangobar style — colors ported from
- * ~/.config/mango/waybar/style.css
- * ========================================================= */
-
-/* ==================== Colors (from waybar) ==================== */
-@define-color color-bg                                  #1b1a1a;
-@define-color color-fg                                  #ebdbb2;
-@define-color color-button-bg                           #83a598;
-@define-color color-button-fg                           #1b1a1a;
-@define-color color-button-urgent-bg                    #fb4934;
-@define-color color-button-urgent-fg                    #1b1a1a;
-@define-color color-workspace-button-bg                 #403b36;
-@define-color color-workspace-button-fg                 #ebdbb2;
-@define-color color-workspace-button-hover-bg           #d3869b;
-@define-color color-workspace-button-hover-fg           #1b1a1a;
-@define-color color-workspace-button-focused-bg         #83a598;
-@define-color color-workspace-button-focused-fg         #1b1a1a;
-@define-color color-widget-audio-bg                     #e3ac2b;
-@define-color color-widget-audio-fg                     #1b1a1a;
-@define-color color-widget-clock-bg                     #c4b595;
-@define-color color-widget-clock-fg                     #1b1a1a;
-@define-color color-widget-battery-bg                   #b8bb26;
-@define-color color-widget-battery-fg                   #1b1a1a;
-@define-color color-widget-backlight-bg                 #d3869b;
-@define-color color-widget-backlight-fg                 #1b1a1a;
-@define-color color-widget-memory-bg                    #83a598;
-@define-color color-widget-memory-fg                    #1b1a1a;
-@define-color color-widget-cpu-bg                       #c4b595;
-@define-color color-widget-cpu-fg                       #1b1a1a;
-@define-color color-widget-network-bg                   #b8bb26;
-@define-color color-widget-network-fg                   #1b1a1a;
-@define-color color-widget-tray-bg                      #504945;
-@define-color color-widget-power-bg                     #83a598;
-@define-color color-widget-power-fg                     #1b1a1a;
-@define-color color-widget-window-bg                    #bd788a;
-@define-color color-widget-window-fg                    #111111;
-@define-color color-widget-layout-bg                    #bd788a;
-@define-color color-widget-layout-fg                    #111111;
-@define-color color-widget-language-bg                  #bd788a;
-@define-color color-widget-language-fg                  #1b1a1a;
-@define-color color-widget-keymode-bg                   #83a598;
-@define-color color-widget-keymode-fg                   #1b1a1a;
-@define-color color-menu-bg                             #241F19;
-@define-color color-menuitem-fg                         #ebdbb2;
-@define-color color-menuitem-hover-bg                   #b8bb26;
-@define-color color-menuitem-hover-fg                   #1b1a1a;
-@define-color color-gradient-fade                       #fbf1c7;
-
-/* ==================== Font ==================== */
+@import './color.css';
 * {
     font-family: "Maple Mono NF CN";
     font-size: 20px;
@@ -150,6 +101,11 @@
     background: linear-gradient(to top, mix(@color-widget-network-bg, @color-bg, 0.15), mix(@color-widget-network-bg, @color-gradient-fade, 0.30));
     color: @color-widget-network-fg;
 }
+/* No active link: use the urgent red so a dropped connection stands out */
+#network.disconnected {
+    background: linear-gradient(to top, mix(@color-button-urgent-bg, @color-bg, 0.15), mix(@color-button-urgent-bg, @color-gradient-fade, 0.30));
+    color: @color-button-urgent-fg;
+}
 #battery {
     background: linear-gradient(to top, mix(@color-widget-battery-bg, @color-bg, 0.15), mix(@color-widget-battery-bg, @color-gradient-fade, 0.30));
     color: @color-widget-battery-fg;
@@ -168,6 +124,12 @@
     margin: 0px 5px;
     background: linear-gradient(to top, mix(@color-widget-power-bg, @color-bg, 0.15), mix(@color-widget-power-bg, @color-gradient-fade, 0.30));
     color: @color-widget-power-fg;
+}
+
+#custom-record {
+    margin: 0px 5px;
+    background: linear-gradient(to top, mix(@color-button-urgent-bg, @color-bg, 0.15), mix(@color-button-urgent-bg, @color-gradient-fade, 0.30));
+    color: @color-button-urgent-fg;
 }
 
 #tray {

@@ -22,6 +22,7 @@
         "battery",
         "clock#date",
         "clock#time",
+        "custom/record",
         "custom/power"
     ],
     "workspaces": {
@@ -44,7 +45,13 @@
         "on-click-right": "python /home/wrq/tool/ocr.py"
     },
     "network": {
-        "format": "󰈀 {ifname}",
+        "format": "{icon} {ifname}",
+        "format-wifi": "{signal} {ssid}",
+        "format-disconnected": "{icon}",
+        "icon-wifi": "󰖩",
+        "icon-ethernet": "󰈀",
+        "icon-disconnected": "󰖪",
+        "signal-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
         "format-alt": "↓{down} ↑{up}"
     },
     "hideclients": {
@@ -124,9 +131,11 @@
         "on-click": "wlogout -C ~/.config/mango/wlogout/style.css -l ~/.config/mango/wlogout/layout -b 6 --protocol layer-shell",
         "on-click-right": "sleep 0.1s && swaync-client -t -sw"
     },
-    "custom/clock": {
-        "exec": "date | cut -d ' ' -f 1",
-        "interval": 5,
+    "custom/record": {
+        "exec": "~/.config/mango/scripts/gpurecord.sh status",
+        "format": "{}",
+        "interval": 1,
         "signal": 8,
-    }
+        "on-click": "~/config/mango/scripts/gpurecord.sh"
+    },
 }
