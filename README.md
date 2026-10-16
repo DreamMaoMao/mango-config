@@ -8,7 +8,7 @@ my mango config
 
 # dependence
 ```bash
-yay -S rofi foot xdg-desktop-portal-wlr swaybg mangobar-git wl-clip-persist cliphist wl-clipboard wlsunset xfce-polkit swaync pamixer sway-audio-idle-inhibit-git swayidle dimland-git brightnessctl swayosd wlr-randr grim slurp satty swaylock-effects-git wlogout sox gpu-screen-recorder
+yay -S rofi foot xdg-desktop-portal-wlr swaybg mangobar-git wl-clip-persist cliphist wl-clipboard wlsunset xfce-polkit swaync pamixer swayidle dimland-git brightnessctl swayosd wlr-randr grim slurp satty swaylock-effects-git wlogout sox gpu-screen-recorder
 ```
 
 # Usage
@@ -20,6 +20,8 @@ git clone https://github.com/DreamMaoMao/mango-config.git ~/.config/mango
 - alt+return: open foot terminal
 - alt+space: open rofi launcher
 - alt+q: kill client
-- alt+left/right/up/down: focus direction
+- alt+left/right/up/down: window focus
+- super+left/right: workspace focus
+- super+j: record video
 - super+m: quit mango
 
