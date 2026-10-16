@@ -134,8 +134,7 @@
     "custom/record": {
         "exec": "~/.config/mango/scripts/gpurecord.sh status",
         "format": "{}",
-        "interval": 1,
         "signal": 8,
-        "on-click": "~/config/mango/scripts/gpurecord.sh"
+        "on-click": "~/.config/mango/scripts/gpurecord.sh"
     },
 }

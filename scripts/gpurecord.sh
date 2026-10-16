@@ -7,11 +7,10 @@ signal_n=${GPURECORD_SIGNAL:-8}
 state_dir=${GPURECORD_STATE_DIR:-${XDG_RUNTIME_DIR:-/tmp}/gpurecord-$(id -u)}
 
 pid_file=$state_dir/pid
-start_file=$state_dir/start
 out_file=$state_dir/out
 log_file=$state_dir/recorder.log
 
-icon="⏺"
+icon="󰨜"
 default_args=(-w screen -f 60 -a default_output)
 
 usage() {
@@ -44,16 +43,6 @@ is_recording() {
     recorder_pid >/dev/null
 }
 
-elapsed_text() {
-    local start now secs
-    [[ -r $start_file ]] || return 0
-    read -r start < "$start_file" || return 0
-    now=$(date +%s)
-    secs=$((now - start))
-    ((secs < 0)) && secs=0
-    printf '%02d:%02d:%02d\n' $((secs / 3600)) $((secs % 3600 / 60)) $((secs % 60))
-}
-
 poke_bar() {
     pkill -"RTMIN+$signal_n" -x mangobar 2>/dev/null || true
 }
@@ -81,7 +70,7 @@ wait_gone() {
 
 cmd_status() {
     is_recording || return 0
-    printf '%s recording %s\n' "$icon" "$(elapsed_text)"
+    printf '%s recording\n' "$icon"
 }
 
 cmd_start() {
@@ -99,7 +88,7 @@ cmd_start() {
         printf 'gpurecord: cannot create %s\n' "$state_dir" >&2
         return 1
     fi
-    rm -f "$pid_file" "$start_file" "$out_file"
+    rm -f "$pid_file" "$out_file"
     : > "$log_file"
 
     setsid "$self_path" __supervise "$@" >/dev/null 2>&1 </dev/null &
@@ -124,7 +113,7 @@ cmd_start() {
 cmd_stop() {
     local pid
     if ! pid=$(recorder_pid); then
-        rm -f "$pid_file" "$start_file" "$out_file"
+        rm -f "$pid_file" "$out_file"
         poke_bar
         printf 'gpurecord: not recording\n' >&2
         return 0
@@ -137,12 +126,12 @@ cmd_stop() {
             wait_gone "$pid" 10
         fi
     fi
-    rm -f "$pid_file" "$start_file" "$out_file"
+    rm -f "$pid_file" "$out_file"
     poke_bar
 }
 
 cmd_supervise() {
-    local out rec rc i stopping=0 secs reason body start_secs
+    local out rec rc i stopping=0 reason body
 
     # Ensure out_dir is an absolute path
     out_dir=$(readlink -f -- "$out_dir")
@@ -152,8 +141,6 @@ cmd_supervise() {
     rec=$!
     printf '%s\n' "$rec" > "$pid_file"
     printf '%s\n' "$out" > "$out_file"
-    start_secs=$(date +%s)
-    printf '%s\n' "$start_secs" > "$start_file"
 
     poke_bar
     notify "$icon Recording started" "" low
@@ -165,7 +152,7 @@ cmd_supervise() {
     if ! kill -0 "$rec" 2>/dev/null; then
         wait "$rec"
         rc=$?
-        rm -f "$pid_file" "$start_file" "$out_file"
+        rm -f "$pid_file" "$out_file"
         poke_bar
         reason=$(tail -n 4 "$log_file" 2>/dev/null | tr '\n' ' ' |
             sed -e 's/  */ /g' -e 's/^ //' -e 's/ $//')
@@ -182,9 +169,7 @@ cmd_supervise() {
     fi
     wait "$rec" 2>/dev/null
 
-    secs=$(($(date +%s) - start_secs))
-    ((secs < 0)) && secs=0
-    rm -f "$pid_file" "$start_file" "$out_file"
+    rm -f "$pid_file" "$out_file"
     poke_bar
 
     body="record save in:$out"
