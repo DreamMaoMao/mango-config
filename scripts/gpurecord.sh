@@ -5,6 +5,7 @@ self_path=$(readlink -f -- "${BASH_SOURCE[0]}")
 out_dir=${GPURECORD_DIR:-$HOME/video}
 signal_n=${GPURECORD_SIGNAL:-8}
 state_dir=${GPURECORD_STATE_DIR:-${XDG_RUNTIME_DIR:-/tmp}/gpurecord-$(id -u)}
+start_delay=${GPURECORD_START_DELAY:-0.1}
 
 pid_file=$state_dir/pid
 out_file=$state_dir/out
@@ -23,9 +24,11 @@ Usage:
   gpurecord.sh status
 
 Environment variables:
-  GPURECORD_DIR        Output directory, default ~/video
-  GPURECORD_SIGNAL     SIGRTMIN+N to poke mangobar, default 8
-  GPURECORD_STATE_DIR  State directory, default $XDG_RUNTIME_DIR/gpurecord-$UID
+  GPURECORD_DIR          Output directory, default ~/video
+  GPURECORD_SIGNAL       SIGRTMIN+N to poke mangobar, default 8
+  GPURECORD_STATE_DIR    State directory, default $XDG_RUNTIME_DIR/gpurecord-$UID
+  GPURECORD_START_DELAY  Seconds to wait after the start notification before
+                         launching gpu-screen-recorder, default 0.1
 EOF
 }
 
@@ -133,9 +136,11 @@ cmd_stop() {
 cmd_supervise() {
     local out rec rc i stopping=0 reason body
 
-    # Ensure out_dir is an absolute path
     out_dir=$(readlink -f -- "$out_dir")
     out="$out_dir/$(date +%Y-%m-%d_%H-%M-%S).mp4"
+
+    notify "$icon Recording started" "" low
+    sleep "$start_delay"
 
     gpu-screen-recorder "${default_args[@]}" "$@" -o "$out" >>"$log_file" 2>&1 &
     rec=$!
@@ -143,7 +148,6 @@ cmd_supervise() {
     printf '%s\n' "$out" > "$out_file"
 
     poke_bar
-    notify "$icon Recording started" "" low
 
     for ((i = 0; i < 10; i++)); do
         kill -0 "$rec" 2>/dev/null || break
