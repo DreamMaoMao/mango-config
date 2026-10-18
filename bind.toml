@@ -19,10 +19,10 @@
 "ALT+Down" = "focusdir,down"
 
 # swap window
-"SUPER+SHIFT+Up" = "exchange_client,up"
-"SUPER+SHIFT+Down" = "exchange_client,down"
-"SUPER+SHIFT+Left" = "exchange_client,left"
-"SUPER+SHIFT+Right" = "exchange_client,right"
+"SUPER+SHIFT+Up" = "move_client,up"
+"SUPER+SHIFT+Down" = "move_client,down"
+"SUPER+SHIFT+Left" = "move_client,left"
+"SUPER+SHIFT+Right" = "move_client,right"
 
 # movewin
 "CTRL+SHIFT+Up" = "movewin,+0,-50"
